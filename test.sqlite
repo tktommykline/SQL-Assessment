@@ -1,0 +1,35 @@
+
+// part 2//
+
+SELECT email_domain, COUNT(*) FROM users
+GROUP BY 1 DESC
+LIMIT 25;
+
+SELECT city COUNT(*) FROM users
+WHERE city = 'New York';
+
+SELECT mobile_app, COUNT(*) FROM users
+WHERE mobile_app IS NOT NULL;
+
+
+//part 3//
+
+SELECT sign_up_at,
+   strftime('%H', sign_up_at)
+FROM users
+GROUP BY 1
+LIMIT 20;
+
+//part 4//
+
+ELECT users.city,
+   progress.learn_cpp,
+   progress.learn_sql,
+   progress.learn_html,
+   progress.learn_javascript,
+   progress.learn_java
+FROM users
+JOIN progress
+  ON users.user_id = progress.user_id
+WHERE city IN ('New York', 'Chicago')
+LIMIT 25
