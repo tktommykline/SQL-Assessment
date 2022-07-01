@@ -22,7 +22,7 @@ LIMIT 20;
 
 //part 4//
 
-ELECT users.city,
+SELECT users.city,
    progress.learn_cpp,
    progress.learn_sql,
    progress.learn_html,
